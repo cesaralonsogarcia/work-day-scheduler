@@ -1,3 +1,7 @@
+var currentDay = $('#currentDay');
+
+var today = dayjs('2023-03-31').format('dddd, MMM DD');
+
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
@@ -19,5 +23,14 @@ $(function () {
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
   //
-  // TODO: Add code to display the current date in the header of the page.
+  // Code to display the current date in the header of the page.
+  if (today.search('01') >= 12 || today.search('21') >= 12 || today.search('31') >= 12){
+    currentDay.text(today + 'st');
+  } else if (today.search('02') >= 12 || today.search('22') >= 12){
+    currentDay.text(today + 'nd');
+  } else if (today.search('03') >= 12 || today.search('23') >= 12){
+    currentDay.text(today + 'rd');
+  } else {
+    currentDay.text(today + 'th');
+  }
 });
