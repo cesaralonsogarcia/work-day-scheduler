@@ -8,9 +8,13 @@ var hour14 = $('#hour-14');
 var hour15 = $('#hour-15');
 var hour16 = $('#hour-16');
 var hour17 = $('#hour-17');
+var saveBtn = $('.saveBtn');
+var textHour9 = $('#hour-9 > textarea');
 
 var today = dayjs().format('dddd, MMM DD');
 var today24hr = dayjs().format('H');
+var description;
+var selectedHour;
 
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
@@ -22,7 +26,30 @@ $(function () {
   // function? How can DOM traversal be used to get the "hour-x" id of the
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
-  //
+  saveBtn.click(function() {
+    description = $(this).siblings('.description').val();
+    selectedHour = $(this).parent().attr('id');
+    if (selectedHour === 'hour-9') {
+      localStorage.setItem('hour9', description);
+    } else if (selectedHour === 'hour-10') {
+      localStorage.setItem('hour10', description);
+    } else if (selectedHour === 'hour-11') {
+      localStorage.setItem('hour11', description);
+    } else if (selectedHour === 'hour-12') {
+      localStorage.setItem('hour12', description);
+    } else if (selectedHour === 'hour-13') {
+      localStorage.setItem('hour13', description);
+    } else if (selectedHour === 'hour-14') {
+      localStorage.setItem('hour14', description);
+    } else if (selectedHour === 'hour-15') {
+      localStorage.setItem('hour15', description);
+    } else if (selectedHour === 'hour-16') {
+      localStorage.setItem('hour16', description);
+    } else if (selectedHour === 'hour-17') {
+      localStorage.setItem('hour17', description);
+    }
+  });
+
   // Code to apply the past, present, or future class to each time by comparing it to the current hour. 
   if (today24hr === '00' || today24hr === '01' || today24hr === '02' ||
   today24hr === '03' || today24hr === '04' || today24hr === '05' ||
