@@ -9,24 +9,30 @@ var hour15 = $('#hour-15');
 var hour16 = $('#hour-16');
 var hour17 = $('#hour-17');
 var saveBtn = $('.saveBtn');
-var textHour9 = $('#hour-9 > textarea');
+var localStorageMessage = $('#local-storage-message');
 
 var today = dayjs().format('dddd, MMM DD');
 var today24hr = dayjs().format('H');
+var savedMessage = 'Appointment saved to localStorage \u2713';
 var description;
 var selectedHour;
+var hour9Description;
+var hour10Description;
+var hour11Description;
+var hour12Description;
+var hour13Description;
+var hour14Description;
+var hour15Description;
+var hour16Description;
+var hour17Description;
 
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 $(function () {
-  // TODO: Add a listener for click events on the save button. This code should
-  // use the id in the containing time-block as a key to save the user input in
-  // local storage. HINT: What does `this` reference in the click listener
-  // function? How can DOM traversal be used to get the "hour-x" id of the
-  // time-block containing the button that was clicked? How might the id be
-  // useful when saving the description in local storage?
+  // Listener for click events on the save button.
   saveBtn.click(function() {
+    
     description = $(this).siblings('.description').val();
     selectedHour = $(this).parent().attr('id');
     if (selectedHour === 'hour-9') {
@@ -48,6 +54,9 @@ $(function () {
     } else if (selectedHour === 'hour-17') {
       localStorage.setItem('hour17', description);
     }
+    localStorageMessage.val(savedMessage);
+    console.log(localStorageMessage.val());
+    console.log(localStorageMessage);
   });
 
   // Code to apply the past, present, or future class to each time by comparing it to the current hour. 
@@ -263,11 +272,45 @@ $(function () {
     hour17.removeClass('present future');
     hour17.addClass('past');
   }
-  //
-  // TODO: Add code to get any user input that was saved in localStorage and set
-  // the values of the corresponding textarea elements. HINT: How can the id
-  // attribute of each time-block be used to do this?
-  //
+  
+  // Code to get any user input that was saved in localStorage and set the values of the corresponding time slot.
+  hour9Description = localStorage.getItem('hour9');
+  if (hour9Description !== null) {
+  hour9.children('.description').val(hour9Description);
+  }
+  hour10Description = localStorage.getItem('hour10');
+  if (hour10Description !== null) {
+  hour10.children('.description').val(hour10Description);
+  }
+  hour11Description = localStorage.getItem('hour11');
+  if (hour11Description !== null) {
+  hour11.children('.description').val(hour11Description);
+  }
+  hour12Description = localStorage.getItem('hour12');
+  if (hour12Description !== null) {
+  hour12.children('.description').val(hour12Description);
+  }
+  hour13Description = localStorage.getItem('hour13');
+  if (hour13Description !== null) {
+  hour13.children('.description').val(hour13Description);
+  }
+  hour14Description = localStorage.getItem('hour14');
+  if (hour14Description !== null) {
+  hour14.children('.description').val(hour14Description);
+  }
+  hour15Description = localStorage.getItem('hour15');
+  if (hour15Description !== null) {
+  hour15.children('.description').val(hour15Description);
+  }
+  hour16Description = localStorage.getItem('hour16');
+  if (hour16Description !== null) {
+  hour16.children('.description').val(hour16Description);
+  }
+  hour17Description = localStorage.getItem('hour17');
+  if (hour17Description !== null) {
+  hour17.children('.description').val(hour17Description);
+  }
+
   // Code to display the current date in the header of the page.
   if (today.search('01') >= 12 || today.search('21') >= 12 || today.search('31') >= 12){
     currentDay.text(today + 'st');
