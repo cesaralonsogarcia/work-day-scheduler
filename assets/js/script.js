@@ -1,6 +1,16 @@
 var currentDay = $('#currentDay');
+var hour9 = $('#hour-9');
+var hour10 = $('#hour-10');
+var hour11 = $('#hour-11');
+var hour12 = $('#hour-12');
+var hour13 = $('#hour-13');
+var hour14 = $('#hour-14');
+var hour15 = $('#hour-15');
+var hour16 = $('#hour-16');
+var hour17 = $('#hour-17');
 
-var today = dayjs('2023-03-31').format('dddd, MMM DD');
+var today = dayjs().format('dddd, MMM DD');
+var today24hr = dayjs().format('H');
 
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
@@ -13,11 +23,219 @@ $(function () {
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
   //
-  // TODO: Add code to apply the past, present, or future class to each time
-  // block by comparing the id to the current hour. HINTS: How can the id
-  // attribute of each time-block be used to conditionally add or remove the
-  // past, present, and future classes? How can Day.js be used to get the
-  // current hour in 24-hour time?
+  // Code to apply the past, present, or future class to each time by comparing it to the current hour. 
+  if (today24hr === '00' || today24hr === '01' || today24hr === '02' ||
+  today24hr === '03' || today24hr === '04' || today24hr === '05' ||
+  today24hr === '06' || today24hr === '07' || today24hr === '08') {
+    hour9.removeClass('present future');
+    hour9.addClass('future');
+    hour10.removeClass('past present');
+    hour10.addClass('future');
+    hour11.removeClass('past present');
+    hour11.addClass('future');
+    hour12.removeClass('past present');
+    hour12.addClass('future');
+    hour13.removeClass('past present');
+    hour13.addClass('future');
+    hour14.removeClass('past present');
+    hour14.addClass('future');
+    hour15.removeClass('past present');
+    hour15.addClass('future');
+    hour16.removeClass('past present');
+    hour16.addClass('future');
+    hour17.removeClass('past present');
+    hour17.addClass('future');
+  } else if (today24hr === '09') {
+    hour9.removeClass('past future');
+    hour9.addClass('present');
+    hour10.removeClass('past present');
+    hour10.addClass('future');
+    hour11.removeClass('past present');
+    hour11.addClass('future');
+    hour12.removeClass('past present');
+    hour12.addClass('future');
+    hour13.removeClass('past present');
+    hour13.addClass('future');
+    hour14.removeClass('past present');
+    hour14.addClass('future');
+    hour15.removeClass('past present');
+    hour15.addClass('future');
+    hour16.removeClass('past present');
+    hour16.addClass('future');
+    hour17.removeClass('past present');
+    hour17.addClass('future');
+  } else if (today24hr === '10') {
+    hour9.removeClass('present future');
+    hour9.addClass('past');
+    hour10.removeClass('past future');
+    hour10.addClass('present');
+    hour11.removeClass('past present');
+    hour11.addClass('future');
+    hour12.removeClass('past present');
+    hour12.addClass('future');
+    hour13.removeClass('past present');
+    hour13.addClass('future');
+    hour14.removeClass('past present');
+    hour14.addClass('future');
+    hour15.removeClass('past present');
+    hour15.addClass('future');
+    hour16.removeClass('past present');
+    hour16.addClass('future');
+    hour17.removeClass('past present');
+    hour17.addClass('future');
+  } else if (today24hr === '11') {
+    hour9.removeClass('present future');
+    hour9.addClass('past');
+    hour10.removeClass('present future');
+    hour10.addClass('past');
+    hour11.removeClass('past future');
+    hour11.addClass('present');
+    hour12.removeClass('past present');
+    hour12.addClass('future');
+    hour13.removeClass('past present');
+    hour13.addClass('future');
+    hour14.removeClass('past present');
+    hour14.addClass('future');
+    hour15.removeClass('past present');
+    hour15.addClass('future');
+    hour16.removeClass('past present');
+    hour16.addClass('future');
+    hour17.removeClass('past present');
+    hour17.addClass('future');
+  } else if (today24hr === '12') {
+    hour9.removeClass('present future');
+    hour9.addClass('past');
+    hour10.removeClass('present future');
+    hour10.addClass('past');
+    hour11.removeClass('present future');
+    hour11.addClass('past');
+    hour12.removeClass('past future');
+    hour12.addClass('present');
+    hour13.removeClass('past present');
+    hour13.addClass('future');
+    hour14.removeClass('past present');
+    hour14.addClass('future');
+    hour15.removeClass('past present');
+    hour15.addClass('future');
+    hour16.removeClass('past present');
+    hour16.addClass('future');
+    hour17.removeClass('past present');
+    hour17.addClass('future');
+  } else if (today24hr === '13') {
+    hour9.removeClass('present future');
+    hour9.addClass('past');
+    hour10.removeClass('present future');
+    hour10.addClass('past');
+    hour11.removeClass('present future');
+    hour11.addClass('past');
+    hour12.removeClass('present future');
+    hour12.addClass('past');
+    hour13.removeClass('past future');
+    hour13.addClass('present');
+    hour14.removeClass('past present');
+    hour14.addClass('future');
+    hour15.removeClass('past present');
+    hour15.addClass('future');
+    hour16.removeClass('past present');
+    hour16.addClass('future');
+    hour17.removeClass('past present');
+    hour17.addClass('future');
+  } else if (today24hr === '14') {
+    hour9.removeClass('present future');
+    hour9.addClass('past');
+    hour10.removeClass('present future');
+    hour10.addClass('past');
+    hour11.removeClass('present future');
+    hour11.addClass('past');
+    hour12.removeClass('present future');
+    hour12.addClass('past');
+    hour13.removeClass('present future');
+    hour13.addClass('past');
+    hour14.removeClass('past future');
+    hour14.addClass('present');
+    hour15.removeClass('past present');
+    hour15.addClass('future');
+    hour16.removeClass('past present');
+    hour16.addClass('future');
+    hour17.removeClass('past present');
+    hour17.addClass('future');
+  } else if (today24hr === '15') {
+    hour9.removeClass('present future');
+    hour9.addClass('past');
+    hour10.removeClass('present future');
+    hour10.addClass('past');
+    hour11.removeClass('present future');
+    hour11.addClass('past');
+    hour12.removeClass('present future');
+    hour12.addClass('past');
+    hour13.removeClass('present future');
+    hour13.addClass('past');
+    hour14.removeClass('present future');
+    hour14.addClass('past');
+    hour15.removeClass('past future');
+    hour15.addClass('present');
+    hour16.removeClass('past present');
+    hour16.addClass('future');
+    hour17.removeClass('past present');
+    hour17.addClass('future');
+  } else if (today24hr === '16') {
+    hour9.removeClass('present future');
+    hour9.addClass('past');
+    hour10.removeClass('present future');
+    hour10.addClass('past');
+    hour11.removeClass('present future');
+    hour11.addClass('past');
+    hour12.removeClass('present future');
+    hour12.addClass('past');
+    hour13.removeClass('present future');
+    hour13.addClass('past');
+    hour14.removeClass('present future');
+    hour14.addClass('past');
+    hour15.removeClass('present future');
+    hour15.addClass('past');
+    hour16.removeClass('past future');
+    hour16.addClass('present');
+    hour17.removeClass('past present');
+    hour17.addClass('future');
+  } else if (today24hr === '17') {
+    hour9.removeClass('present future');
+    hour9.addClass('past');
+    hour10.removeClass('present future');
+    hour10.addClass('past');
+    hour11.removeClass('present future');
+    hour11.addClass('past');
+    hour12.removeClass('present future');
+    hour12.addClass('past');
+    hour13.removeClass('present future');
+    hour13.addClass('past');
+    hour14.removeClass('present future');
+    hour14.addClass('past');
+    hour15.removeClass('present future');
+    hour15.addClass('past');
+    hour16.removeClass('present future');
+    hour16.addClass('past');
+    hour17.removeClass('past future');
+    hour17.addClass('present');
+  } else {
+    hour9.removeClass('present future');
+    hour9.addClass('past');
+    hour10.removeClass('present future');
+    hour10.addClass('past');
+    hour11.removeClass('present future');
+    hour11.addClass('past');
+    hour12.removeClass('present future');
+    hour12.addClass('past');
+    hour13.removeClass('present future');
+    hour13.addClass('past');
+    hour14.removeClass('present future');
+    hour14.addClass('past');
+    hour15.removeClass('present future');
+    hour15.addClass('past');
+    hour16.removeClass('present future');
+    hour16.addClass('past');
+    hour17.removeClass('present future');
+    hour17.addClass('past');
+  }
   //
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
