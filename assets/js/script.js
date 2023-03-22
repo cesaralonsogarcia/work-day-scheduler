@@ -10,10 +10,11 @@ var hour16 = $('#hour-16');
 var hour17 = $('#hour-17');
 var saveBtn = $('.saveBtn');
 var localStorageMessage = $('#local-storage-message');
+var alert = $('#alert');
+var textDescription = $('.description');
 
 var today = dayjs().format('dddd, MMM DD');
 var today24hr = dayjs().format('H');
-var savedMessage = 'Appointment saved to localStorage \u2713';
 var description;
 var selectedHour;
 var hour9Description;
@@ -28,9 +29,14 @@ var hour17Description;
 
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
-// in the html.
+// in the html
 $(function () {
-  // Listener for click events on the save button.
+  // Lister for keyboard events to clear the saved to localStorage alert
+  textDescription.on('keydown', function() {
+    alert.text('');
+  });
+
+  // Listener for click events on the save button
   saveBtn.click(function() {
     
     description = $(this).siblings('.description').val();
@@ -54,12 +60,11 @@ $(function () {
     } else if (selectedHour === 'hour-17') {
       localStorage.setItem('hour17', description);
     }
-    localStorageMessage.val(savedMessage);
-    console.log(localStorageMessage.val());
-    console.log(localStorageMessage);
+    alert.text('Appointment saved to localStorage \u2713');
+    alert.addClass('alert alert-light text-center');
   });
 
-  // Code to apply the past, present, or future class to each time by comparing it to the current hour. 
+  // Code to apply the past, present, or future class to each time by comparing it to the current hour 
   if (today24hr === '00' || today24hr === '01' || today24hr === '02' ||
   today24hr === '03' || today24hr === '04' || today24hr === '05' ||
   today24hr === '06' || today24hr === '07' || today24hr === '08') {
@@ -273,7 +278,7 @@ $(function () {
     hour17.addClass('past');
   }
   
-  // Code to get any user input that was saved in localStorage and set the values of the corresponding time slot.
+  // Code to get any user input that was saved in localStorage and set the values of the corresponding time slot
   hour9Description = localStorage.getItem('hour9');
   if (hour9Description !== null) {
   hour9.children('.description').val(hour9Description);
@@ -311,7 +316,7 @@ $(function () {
   hour17.children('.description').val(hour17Description);
   }
 
-  // Code to display the current date in the header of the page.
+  // Code to display the current date in the header of the page
   if (today.search('01') >= 12 || today.search('21') >= 12 || today.search('31') >= 12){
     currentDay.text(today + 'st');
   } else if (today.search('02') >= 12 || today.search('22') >= 12){
